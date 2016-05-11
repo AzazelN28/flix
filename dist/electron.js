@@ -50,6 +50,17 @@ app.on("window-all-closed", () => {
 
 app.on("ready", () => {
 
+  const protocol = electron.protocol;
+  protocol.registerHttpProtocol("magnet", (request, callback) => {
+    const url = request.url;
+    //ipcMain.emit("load-magnet", url);
+    callback({path:url});
+  }, (error) => {
+    if (error) {
+      console.error(error);
+    }
+  });
+
   const mainWindow = new BrowserWindow({ width: 800, height: 600 });
   mainWindow.loadURL("file://" + path.join(__dirname, "index.html"));
   mainWindow.on("closed", () => {
