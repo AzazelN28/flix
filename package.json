@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron-prebuilt": "^0.37.8",
+    "electron-prebuilt": "^1.0.0",
     "lodash": "^4.12.0",
     "network-address": "^1.1.0",
     "peerflix": "^0.34.0",

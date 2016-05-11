@@ -1,12 +1,10 @@
 /* jshint node: true */
 const path = require("path");
 const os = require("os");
-const app = require("app");
 const electron = require("electron");
+const app = electron.app;
 const ipcMain = electron.ipcMain;
-const BrowserWindow = require("browser-window");
-
-let mainWindow = null;
+const BrowserWindow = electron.BrowserWindow;
 
 const peerflix = require("peerflix");
 const address = require("network-address");
@@ -52,10 +50,10 @@ app.on("window-all-closed", () => {
 
 app.on("ready", () => {
 
-  mainWindow = new BrowserWindow({ width: 800, height: 600 });
-  mainWindow.loadUrl("file://" + path.join(__dirname, "index.html"));
+  const mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  mainWindow.loadURL("file://" + path.join(__dirname, "index.html"));
   mainWindow.on("closed", () => {
-    mainWindow = null;
+    //mainWindow = null;
   });
 
   if (process.env.NODE_ENV === "development") {

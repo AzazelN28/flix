@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import Application from "./Application";
 
 function init() {
-    window.removeEventListener("DOMContentLoaded", init);
-    ReactDOM.render(
-        <Application />,
-        document.querySelector("#application")
-    );
+  window.removeEventListener("DOMContentLoaded", init);
+  ReactDOM.render(
+      <Application />,
+      document.querySelector("#application")
+  );
 }
 
 window.addEventListener("DOMContentLoaded", init);
